@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import Userservice from "../services/Userservice";
 import axios from 'axios';
-
+export const loggedin = "true";
 export default class Login extends Component {
     constructor(props) {
         super(props)
-
+        
         this.state = {
             id: this.props.match.params.id,
             username:'',
@@ -29,6 +29,7 @@ export default class Login extends Component {
 
     handleLogin = (e) => {
         e.preventDefault();
+        //alert(loggedin)
         let user = {username: this.state.username,password:this.state.password};
         //let password={password:this.state.password};
        //alert(user.username)
@@ -41,7 +42,7 @@ export default class Login extends Component {
             //alert(u.password, password)
             if(u.status=="ver") 
             {   if (u.password==user.password){
-                    const { loggingIn } = "True";
+                    
                     this.props.history.push('/verify');
                 }
                 else{
@@ -69,6 +70,13 @@ export default class Login extends Component {
                     alert("Please verify your username and password");
                 }
             }
+            else if(u.status=="initiate"){
+                alert("Your details are yet to be verified");
+            }
+            else if(u.status=="verified"){
+                alert("Your details are yet to be approved");
+            }
+
         }))
     }
     

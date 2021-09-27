@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Userservice from '../services/Userservice'
-
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 class ApproveuserComponent extends Component {
     constructor(props) {
         super(props)
@@ -18,7 +18,7 @@ class ApproveuserComponent extends Component {
         });
     }
     viewuser(id){
-        this.props.history.push(`/view/${id}`);
+        this.props.history.push(`/view_a/${id}`);
     }
     
     approveuser(id){
@@ -40,10 +40,20 @@ class ApproveuserComponent extends Component {
         });
     }
     render() {
-       
+        //const loggingIn  = "true";
         return (
             <div>
-                 <h2 className="text-center">users List</h2>
+
+                <nav className="navbar navbar-expand-lg navbar-light fixed-top">
+                    <div className="container">
+                    <ul className="navbar-nav ml-auto">
+                            <li className="nav-item">
+                                <Link className="navbar-brand" to={"/logout"}><b>Logout</b></Link>
+                            </li>
+                    </ul>
+                    </div>
+                    </nav> 
+                 <h2 className="text-center">Approver's Board</h2>
                  
                  <br></br>
                  <div className = "row">

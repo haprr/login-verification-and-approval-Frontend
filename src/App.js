@@ -9,44 +9,34 @@ import SignUp from "./components/signup.component";
 import Home from "./components/home.component";
 import ListuserComponent from "./components/verify.component";
 import ViewuserComponent from "./components/view.component";
+import Viewforapprover from "./components/view_approver";
 import ApproveuserComponent from "./components/approve.component";
 import Form from "./components/form.component";
+import loggedin from "./components/verify.component";
 
 function App() {
-  /*
-  const loggedin = "false";
-
-  useEffect(() => {
-    history.listen((location) => {
-      dispatch(clearMessage()); // clear message when changing location
-    });
-  }, [dispatch]);*/
-  return (<Router>
+ // const  = "false";
+ 
+  return (
+  <Router>
     
     <div className="App">
-      <nav className="navbar navbar-expand-lg navbar-light fixed-top">
+      <nav className="navbar navbar-expand-lg navbar-light">
         <div className="container">
           <Link className="navbar-brand" to={"/"}><b>Karnataka Builders and Construction Workers Board </b></Link>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul className="navbar-nav ml-auto">
-              
-                <li className="nav-item">
+              <ul className="navbar-nav ml-auto">
+              <li className="nav-item">
                   <Link className="navbar-brand" to={"/sign-in"}><b>Login</b></Link>
                 </li>
                 <li className="nav-item">
                   <Link className="navbar-brand" to={"/sign-up"}><b>Sign up</b></Link>
                 </li>
                
-              {/*
-              {
-              (loggedin=="true") && (
-              <li className="nav-item">
-                <Link to={"/logout"} className="nav-link">
-                  Logout
-                </Link>
-              </li>
-            )}*/ }
-            </ul>
+                
+                </ul>
+          
+            
           </div>
         </div>
       </nav>
@@ -60,11 +50,14 @@ function App() {
             <Route path="/verify" component={ListuserComponent} />
             <Route path="/approve" component={ApproveuserComponent} />
             <Route path="/view/:id" component={ViewuserComponent}/> 
+            <Route path="/view_a/:id" component={Viewforapprover}/> 
             <Route path="/form" component={Form} />
+            <Route path="/logout" component={Home} />
           </Switch>
         </div>
       </div>
-    </div></Router>
+    </div>
+    </Router>
   );
 }
 

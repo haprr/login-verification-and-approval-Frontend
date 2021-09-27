@@ -3,7 +3,7 @@ import Userservice from '../services/Userservice'
 import { Button, Container, Form, FormGroup, Input, Label, NavItem } from 'reactstrap';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-class ViewuserComponent extends Component {
+class Viewforapprover extends Component {
     constructor(props) {
         super(props)
 
@@ -49,7 +49,7 @@ class ViewuserComponent extends Component {
                     </div>
                     <FormGroup>
                         
-                        <Button color="secondary" tag={Link} to="/verify">Back</Button>
+                        <Button color="secondary" tag={Link} to="/approve">Back</Button>
                 </FormGroup>
                 </div>
             </div>
@@ -58,4 +58,4 @@ class ViewuserComponent extends Component {
     }
 }
 
-export default ViewuserComponent
+export default Viewforapprover

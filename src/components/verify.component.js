@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import Userservice from '../services/Userservice'
-
+import { Link } from "react-router-dom";
+//import App from './App.js';
+const loggedin = "true";
 class ListuserComponent extends Component {
     constructor(props) {
         super(props)
@@ -25,6 +27,7 @@ class ListuserComponent extends Component {
     verifyuser(id){
         Userservice.getUserById(id).then((res=>{
             let u=res.data;
+            
             //alert(u.status)
             //u.status="verified"
             let user={username:u.username,emailid:u.emailid,password:u.password, status:"verified"}
@@ -50,15 +53,28 @@ class ListuserComponent extends Component {
         
     }
     render() {
-       
+        
         return (
-            <div>
-                 <h2 className="text-center">users List</h2>
-                 
-                 <br></br>
+            <div>  
+                <div>          
+               <nav className="navbar navbar-expand-lg navbar-light fixed-top">
+                    <div className="container">
+                    <ul className="navbar-nav ml-auto">
+                            <li className="nav-item">
+                                <Link className="navbar-brand" to={"/logout"}><b>Logout</b></Link>
+                            </li>
+                    </ul>
+                    </div>
+                    </nav> 
+                    </div>   
+                    <br></br>
+                   
+        <div><h2 className="text-center">Verifier's Board</h2></div>
+                     
                  <div className = "row">
+                 
                         <table className = "table table-striped table-bordered">
-
+                           
                             <thead>
                                 <tr>
                                     
